@@ -7,7 +7,7 @@ using System;
 
 public class TaskBase : INotifyCompletion
 {
-    public Action continua;
+    Action continua;
 
     bool isCompleted = false;
     public bool IsCompleted

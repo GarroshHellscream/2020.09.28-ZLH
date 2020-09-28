@@ -1,9 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using UnityEngine;
-
-public class TaskWaitFrame : TaskBase
+﻿public class TaskWaitFrame : TaskBase
 {
     int frames;
 
@@ -17,6 +12,7 @@ public class TaskWaitFrame : TaskBase
         if (frames <= 0)
         {
             Finish();
+            return;
         }
         frames --;
     }

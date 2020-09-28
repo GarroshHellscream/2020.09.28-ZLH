@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using UnityEngine;
-
-public class TaskParall : TaskBase
+﻿public class TaskParall : TaskBase
 {
     TaskBase[] taskArray;
     int completedCount = 0;
@@ -19,6 +13,7 @@ public class TaskParall : TaskBase
         if (completedCount == taskArray.Length)
         {
             Finish();
+            return;
         }
         completedCount = 0;
         for(int i = 0; i < taskArray.Length; i++)

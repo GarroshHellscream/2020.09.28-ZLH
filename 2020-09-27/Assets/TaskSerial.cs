@@ -1,9 +1,4 @@
-﻿using JetBrains.Annotations;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class TaskSerial : TaskBase
+﻿public class TaskSerial : TaskBase
 {
     TaskBase[] taskArray;
     TaskBase currentTask;
@@ -12,14 +7,10 @@ public class TaskSerial : TaskBase
     public TaskSerial(TaskBase[] taskArray)
     {
         this.taskArray = taskArray;
-        if(taskArray.Length>0)
+        if (taskArray.Length > 0)
+        {
             currentTask = taskArray[currentIndex];
-        NewTaskNode();
-    }
-
-    async void NewTaskNode()
-    {
-        await currentTask.Start();
+        }
     }
 
     public override void UpdatePerFrame(float deltaTime)
@@ -30,11 +21,11 @@ public class TaskSerial : TaskBase
             if (currentIndex < taskArray.Length)
             {
                 currentTask = taskArray[currentIndex];
-                NewTaskNode();
             }
             else
             {
                 Finish();
+                return;
             }
         }
         currentTask.UpdatePerFrame(deltaTime);

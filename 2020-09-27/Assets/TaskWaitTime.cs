@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class TaskWaitTime : TaskBase
+﻿public class TaskWaitTime : TaskBase
 {
     float seconds;
 
@@ -16,6 +12,7 @@ public class TaskWaitTime : TaskBase
         if (seconds <= 0)
         {
             Finish();
+            return;
         }
         seconds -= deltaTime;
     }
